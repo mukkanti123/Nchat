@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Rooms</title>
+    <link rel="shortcut icon" href="img/WhatsApp Image 2023-12-29 at 20.43.12_90070f2b.jpg">
+    <link rel="stylesheet" href="chat.css">
+</head>
+<body>
+
+<header class="header">
+    <h1> N CHAT </h1>
+    <div class="logo">
+        <a href="#home"><img src="imges/logo c.jpg" class="p" alt="Logo"></a>
+    </div>
+    <button type="button" onclick="Logout()"><a href="./login.html">Logout</a></button>
+    <button type="button" onclick="contact()"><a href="./contact.html">Contact</a></button>
+  
+    <button type="button" onclick="goBack()"> <a href="./nchat.html">Back</a></button>
+    
+</header>
+<div class="ads">
+       
+     
+
+<form action="/submit" method="post" class="button-form">
+    <!-- Other form elements can be added here -->
+    <button type="button" onclick="redirectToPage('./andhra.html')" class="btn-large">Andhra</button>
+    <button type="button" onclick="redirectToPage('/karnataka.html')" class="btn-large">Karnataka</button>
+    <button type="button" onclick="redirectToPage('./tamilnadu.html')" class="btn-large">Tamil</button>
+    
+</form>
+ <!-- <h1>Ads for Nchat</h1> -->
+      
+ <!-- <img src="imges/ps.jpeg" alt="" height="300px"> -->
+ <!-- <p>Connect with People</p> -->
+</div>
+
+
+<script>
+    function redirectToPage(url) {
+        window.location.href = url;
+    }
+
+    // Function to go back in browser history
+    function goBack() {
+        window.history.back();
+    }
+</script>
+
+</body>
+
+</html>

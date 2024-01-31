@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Chat</title>
+    <link rel="stylesheet" href="nchat.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <a href="#home"><img src="imges/logo c.jpg" class="p" alt="Logo"></a>
+        </div>
+        <h1>NChat</h1>
+        <div class="search-bar">
+            <input type="text" id="search-input" placeholder="Search..."oninput="searchChat()">
+            <button id="search-icon" onclick="searchchat()">🔍</button>
+        </div>
+      
+       <button type="button" onclick="Logout()"> <a href="./login.html">Logout</a></button>
+        
+       
+    </header>
+    
+    <div class="dropdowns-container">
+        <select id="friends-dropdown" onchange="selectFriend()">
+            <option value="Hari">Friends</option>
+            <option value="Hari">Hari</option>
+            <option value="Suresh">Suresh</option>
+            <option value="Vasu">Vasu</option>
+            <option value="Kumar">Kumar</option>
+            <option value="Madhu">Madhu</option>
+            <option value="Vijaya.m">Vijaya.m</option>
+        </select>
+
+        <div class="mychannels">
+            <h1>Channels</h1>
+            <ul>
+                
+                <li onclick="Politicschat()"> <a href="./politics.html">Politics Chat</a></li>
+                <li onclick="Generalchat()"> <a href="./general.html">General Chat</a></li>
+                <li onclick="Sportschat()"> <a href="./sports.html">Sports Chat</a></li>
+                <li onclick="Musicchat()"> <a href="./music.html">Music Chat</a></li>
+                <li onclick="Supportchat()"> <a href="./support.html">Support Chat</a></li>
+                <li onclick="collegechat()"> <a href="./college.html">College Chat</a></li>
+                <li onclick="Jobschat()"> <a href="./jobs.html">Jobs Chat</a></li>
+                <li onclick="Gameschat()"> <a href="./games.html">Games Chat Room</a></li>
+                <li onclick="Applegamechat()"> <a href="./apple.html">Apple Game Chat</a></li>
+                <li onclick="Mastercheckers()"> <a href="./master.html">Master Checkers chat</a></li>
+                <li onclick="katanafruitschat()"> <a href="./fighter.html">fighter chat</a></li>
+                <button type="button" onclick="chatrooms()"><a href="./chat.html">Regional Rooms</a></button>
+                
+               
+            </ul>
+        </div>
+    </div>
+    <div id="chat-container">
+        <div id="header">
+            <h1>Random chat</h1>
+            <div id="online-status">
+                <span class="online-dot"></span> Online
+            </div>
+        </div>
+        <div id="messages"> 
+            
+        </div>
+        <div id="input-container">
+            <input type="text" id="message-input" placeholder="Type your message...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+        
+    </div>
+    <div class="ads">
+       <h1>Ads for Nchat</h1>
+     
+        <img src="imges/chat2.jpeg" alt="">
+        <p>Connect with People</p>
+    </div>
+    
+
+    <script>
+       function selectFriend() {
+    var selectedFriend = document.getElementById('friends-dropdown').value;
+    var messagesDiv = document.getElementById('messages');
+
+    // Clear existing messages
+    messagesDiv.innerHTML = '';
+
+    // Display the selected friend's profile symbol and name in the chat
+    var selectedFriendMessage = document.createElement('div');
+    selectedFriendMessage.className = 'chat-profile';
+
+    // Add an image element for the profile symbol
+    var profileImage = document.createElement('img');
+    profileImage.src = 'imges/' + selectedFriend + '.jpg'; // Adjust the path as needed
+    profileImage.alt = 'profile';
+    selectedFriendMessage.appendChild(profileImage);
+
+    // Add a paragraph element for the friend's name
+    var friendName = document.createElement('p');
+    friendName.textContent = selectedFriend;
+    selectedFriendMessage.appendChild(friendName);
+
+    messagesDiv.appendChild(selectedFriendMessage);
+
+    messagesDiv.scrollTop = messagesDiv.scrollHeight;
+}
+
+    
+        function sendMessage() {
+            var messageInput = document.getElementById('message-input');
+            var message = messageInput.value;
+    
+            if (message.trim() !== '') {
+                var messagesDiv = document.getElementById('messages');
+    
+                var userMessage = 'You: ' + message;
+                var userMessageElement = document.createElement('p');
+                userMessageElement.textContent = userMessage;
+                messagesDiv.appendChild(userMessageElement);
+    
+                var friendName = document.getElementById('friends-dropdown').value;
+                var replies = ["Hello!", "How are you?", "Nice to meet you!", "What's up?", "Tell me more!"];
+                var randomReply = friendName + ": " + replies[Math.floor(Math.random() * replies.length)];
+    
+                var replyElement = document.createElement('p');
+                replyElement.textContent = randomReply;
+                messagesDiv.appendChild(replyElement);
+    
+                messageInput.value = '';
+    
+                messagesDiv.scrollTop = messagesDiv.scrollHeight;
+            }
+        }
+       
+        function searchChat() {
+            var searchInput = document.getElementById('search-input').value.toLowerCase();
+            var chatOptions = document.querySelectorAll('.mychannels li');
+
+            chatOptions.forEach(function (option) {
+                var optionText = option.textContent.toLowerCase();
+                if (optionText.includes(searchInput)) {
+                    option.style.display = 'block';
+                } else {
+                    option.style.display = 'none';
+                }
+            });
+        }
+        
+   
+
+    </script>
+    
+</body>
+</html>

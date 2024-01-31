@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guest Login</title>
+    <link rel="stylesheet" href="guest.css">
+</head>
+<body>
+    <div class="login-container">
+        <h1>Guest Login</h1>
+        <form id="guestLoginForm">
+            <label for="guestUsername">Username:</label>
+            <input type="text" id="guestUsername" name="guestUsername" required>
+
+            <!-- <label for="guestPassword">Password:</label>
+            <input type="password" id="guestPassword" name="guestPassword" required> -->
+             <div class="back">
+            <button type="button" onclick="guestLogin()"><a href="./chat.html">Login as Guest</a></button>
+        </div>
+        </form>
+        <div class="hover">
+            <button type="button" onclick="Backtologin()"><a href="./login.html">Back to Login</a></button>
+        </div>
+    </div>
+    
+
+    <script src="script.js"></script>
+</body>
+</html>

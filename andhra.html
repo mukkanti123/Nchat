@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="tailwindcss-colors.css">
+    <link rel="stylesheet" href="andhra.css">
+    <title>Chat</title>
+</head>
+
+<body>
+    <section class="chat-section">
+        <div class="chat-container">
+            <aside class="chat-sidebar">
+                <img src="imges/logo c.jpg" alt="">
+
+                <ul class="chat-sidebar-menu">
+                <li><img src="imges/home.png" alt="Logout" onclick="navigateTo('chat.html')"></li>
+                <li><img src="imges/p1.png" alt="Profile" onclick="navigateTo('user.HTML')"></li>
+                   
+                <img src="imges/setting.png" alt="Setting" onclick="navigateTo('setting.html')">
+                <li><img src="imges/logout.png" alt="Logout" onclick="navigateTo('login.html')"></li>
+                </ul>
+            </aside>
+            
+
+            <div class="chat-content">
+                <div class="content-sidebar">
+                    <form action="" class="content-sidebar-form">
+                        <input type="search" class="content-sidebar-input" placeholder="Search..." id="searchInput">
+                        <button type="submit" class="content-sidebar-submit"><i class="ri-search-line"></i></button>
+                    </form>
+                  
+                </div>
+               
+                <div class="content-messages">
+                    <ul class="content-messages-list">
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+
+        <section class="chat" id="conversation-2" style="display: none;">
+            <div class="chat-messages" id="chatMessages">
+                <!-- Chat messages will be displayed here -->
+            </div>
+            <form class="message-input-form" onsubmit="sendMessage(event)">
+                <input type="text" class="message-input" placeholder="Type a message..." id="messageInput">
+                <button type="submit">Send</button>
+            </form>
+        </section>
+    </section>
+    <!-- ... Your existing HTML code ... -->
+    <script>
+        function navigateTo(page) {
+            window.location.href = page;
+        }
+    </script>
+
+<script>
+    // Sample data for users and messages
+    const users = [
+        { name: 'Ravi', image: 'imges/c4.webp' },
+        { name: 'Sita', image: 'imges/c5.avif' },
+        { name: 'naveen', image: 'imges/c6.avif' },
+        { name: 'Krishna', image: 'imges/c2.jpg' },
+        { name: 'uma', image: 'imges/c3.webp' }
+    ];
+
+    // Function to dynamically populate user list
+    function populateUserList(userList) {
+        const userListContainer = document.querySelector('.content-messages-list');
+        userListContainer.innerHTML = '';
+
+        userList.forEach(user => {
+            const listItem = document.createElement('li');
+            listItem.innerHTML = `
+                <a href="#" onclick="openChat('${user.name}')">
+                    <img class="content-message-image" src="${user.image}">
+                    <span class="content-message-info">
+                        <span class="content-message-name">${user.name}</span>
+                    </span>
+                </a>
+            `;
+            userListContainer.appendChild(listItem);
+        });
+    }
+
+    // Function to filter users based on search input
+    function filterUsers(searchTerm) {
+        const filteredUsers = users.filter(user =>
+            user.name.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+        populateUserList(filteredUsers);
+    }
+
+    // Function to handle form submission for searching users
+    function handleSearchForm(event) {
+        event.preventDefault();
+
+        const searchInput = document.getElementById('searchInput');
+        const searchTerm = searchInput.value.trim();
+
+        // Filter and display the matching users
+        filterUsers(searchTerm);
+    }
+
+    // Function to open chat for a specific user
+    function openChat(name) {
+        document.querySelectorAll('.chat').forEach(function (chatSection) {
+            chatSection.style.display = 'none';
+        });
+
+        const selectedChatSection = document.getElementById('conversation-2');
+        selectedChatSection.style.display = 'block';
+
+        // You can customize the logic here to load specific messages for the selected user
+        const chatMessages = document.getElementById('chatMessages');
+        chatMessages.innerHTML = `<div class="message-incoming"><p>Chat with ${name}</p></div>`;
+    }
+
+    // Function to send a message
+    function sendMessage(event) {
+        event.preventDefault();
+
+        const messageInput = document.getElementById('messageInput');
+        const chatMessages = document.getElementById('chatMessages');
+        const message = messageInput.value.trim();
+
+        if (message !== '') {
+            // Add the outgoing message
+            const newMessageOutgoing = document.createElement('div');
+            newMessageOutgoing.classList.add('message-outgoing');
+            newMessageOutgoing.innerHTML = `<p>${message}</p>`;
+            chatMessages.appendChild(newMessageOutgoing);
+
+            // Generate a random reply
+            const replies = ["Hello!", "Hi there!", "How can I help?", "Nice to meet you!"];
+            const randomReply = replies[Math.floor(Math.random() * replies.length)];
+
+            // Add the incoming random reply after a delay
+            setTimeout(() => {
+                const newMessageIncoming = document.createElement('div');
+                newMessageIncoming.classList.add('message-incoming');
+                newMessageIncoming.innerHTML = `<p>${randomReply}</p>`;
+                chatMessages.appendChild(newMessageIncoming);
+            }, 1000);
+
+            // Clear the message input
+            messageInput.value = '';
+        }
+    }
+
+    // Call the function to populate the initial user list
+    populateUserList(users);
+
+    // Attach the search functionality to the form submission event
+    document.querySelector('.content-sidebar-form').addEventListener('submit', handleSearchForm);
+
+    // Attach the sendMessage function to the message form submission event
+    document.querySelector('.message-input-form').addEventListener('submit', sendMessage);
+</script>
+
+<!-- ... Your existing HTML code ... -->
+
+    
+</body>
+
+</html>

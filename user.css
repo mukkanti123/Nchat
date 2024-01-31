@@ -1,0 +1,47 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color:darkgray;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    color:black;
+}
+
+.profile-info {
+    max-width: 400px;
+    margin: 20px auto;
+    background-color:azure;
+    padding: 20px;
+    font-size: large;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.picture{
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+span {
+    display: block;
+    margin-bottom: 16px;
+}
+
+a {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #3498db;
+    font-weight: bold;
+}
+
+a:hover {
+    color:black;
+}

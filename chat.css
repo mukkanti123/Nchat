@@ -1,0 +1,111 @@
+body {
+    font-family: Arial, sans-serif;
+     background-image: url(imges/ps5.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+}
+
+header {
+    margin-top: 0px;
+    background-color:black;
+    color:darkgray;
+    padding: 15px;
+    text-align:center;
+    width: 100%;
+
+}
+.header .logo{
+    text-align: left;
+
+}
+
+
+.logo img {
+    width: 100px; 
+    height: auto; 
+}
+
+.logo{
+    margin-top: -85px;
+    margin-right: 50px;
+}
+form {
+    /* background-color: #fff; */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+    margin-top: 20px;
+    
+}
+/* Style for larger buttons */
+.btn-large {
+    display: flex;
+    flex-direction:column;
+    width: 120px;
+    height: 50px;
+}
+
+.btn-large {
+    padding: 10px 20px; 
+    font-size: 16px;
+    margin: 5px; 
+    background-color:black; 
+    color: white; 
+    border: none; 
+    border-radius: 10px; 
+    cursor: pointer; 
+    text-decoration: none;
+    display: inline-block; 
+}
+
+/* Hover effect for buttons */
+.btn-large:hover {
+    background-color:peru;
+}
+
+
+.button-form {
+    width: 400px;
+    height: 300px;
+    margin-top: 100px; 
+    background-color: black;
+    background-image: url(imges/chatgroup.jpg);
+    padding: 80px;
+    background-size: cover;
+    background-position: center;
+}
+.ads {
+    display: flex;
+    
+    flex-direction:row;
+    margin-left: 20px;
+    float:left; 
+    margin-right: 20px;
+    margin-top: 150px; 
+    cursor: pointer;
+    /* animation: blinkAndMove 2s infinite alternate;
+     */
+}
+image {
+    
+    height: 100px;
+    width: 300px; /* Set the desired image height */
+    animation: blinkAndMove 2s infinite alternate; /* Blink and move animation */
+}
+@keyframes blinkAndMove {
+    0%, 100% {
+        opacity: 0;
+        transform: translateX(0);
+    }
+    50% {
+        opacity: 1;
+        transform: translateX(2 0px); /* Adjust the distance to move */
+    }
+}

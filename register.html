@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register</title>
+  <link rel="stylesheet" href="register.css">
+</head>
+<body>
+ 
+    <div class="container">
+      <form onsubmit="showAlert()">
+
+        <div class="form-group">
+          <h1>Register Form</h1>
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" required>
+        </div>
+        <div class="form-group">
+          <label>Gender:</label>
+          <label for="male"><input type="radio" id="male" name="gender" value="male">Male</label>
+          <label for="female"><input type="radio" id="female" name="gender" value="female">Female</label>
+          <label for="Others"><input type="radio" id="Others" name="gender" value="female">Others</label>
+        </div>
+        <div class="form-group">
+          <label for="age">Age:</label>
+          <input type="number" id="age" name="age">
+        </div>
+        <div class="form-group">
+          <label for="country">Country:</label>
+          <input type="text" id="country" name="country">
+        </div>
+        <div class="form-group">
+          <label for="city">City:</label>
+          <input type="text" id="city" name="city">
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required>
+        </div>
+        <div class="form-group">
+          <button type="button" onclick="register()"><a href="./user.html">Register</a></button>
+        </div>
+      </form>
+    </div>
+    <script src="script.js"></script>
+
+    <script>
+      function showAlert() {
+        alert("Registration successful!");
+      }
+    </script>
+  </body>
+</html>

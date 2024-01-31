@@ -1,0 +1,232 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: palegoldenrod;
+}
+
+
+.header {
+    background-color: #333;
+    color: #fff;
+    height: 150px;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+}
+
+#search-input {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+#search-icon {
+    padding: 8px;
+    background-color:white;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+#search-icon:hover {
+    background-color: #45a049;
+}
+
+.logo {
+    margin-top: 10px;
+}
+
+.logo img {
+    width: 150px;
+    height: auto;
+}
+
+.chat-profile {
+    display: flex;
+    flex-direction: row;
+    font-size: 35px;
+    gap: 10px;
+}
+
+.chat-profile img {
+    height: 100px;
+    width: 100px;
+    border-radius: 1000px;
+}
+
+#chat-container {
+    max-width: 1000px;
+    height: 400px;
+    margin: -680px auto;
+    background-color: #fff;
+    padding: 100px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+#messages {
+    max-height: 300px;
+    overflow-y: scroll;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+#input-container {
+    display: flex;
+    margin-top: 50px;
+}
+
+#message-input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+button {
+    padding: 10px;
+    background-color:#333;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+
+#friends-dropdown {
+    padding: 20px;
+    width: 300px;
+    border: 20px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+   
+}
+
+#friends-dropdown option {
+    background-color:aqua; 
+    color: #333; 
+}
+
+#friends-dropdown:hover,
+#friends-dropdown:focus {
+    border-color: #4caf50; 
+}
+
+#friends-dropdown:focus {
+    outline: none; 
+}
+
+#friends-dropdown option:hover {
+    background-color: #f0f0f0; 
+}
+
+
+.mychannels {
+   height:605px;
+   width: 280px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    font-size:larger;
+    background-color:lightseagreen;
+   
+    
+}
+.mychannels li {
+    cursor: pointer;
+    padding: 8px;
+    margin-bottom: 5px; 
+}
+
+.mychannels li:hover {
+    background-color:palegreen;
+}
+
+button {
+    padding: 15px;
+    background-color: black;
+    color:white;
+    border: none;
+    border-radius: 4px;
+   cursor: pointer;
+    text-decoration: none; /* Remove default link underline */
+    display: inline-block;
+}
+
+button a {
+    color: #fff;
+    text-decoration: none;
+    display: inline-block;
+    width: 150px;
+    height: 100%;
+    font-size: x-large;
+}
+
+button:hover {
+    background-color:palevioletred;
+}
+
+#header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#online-status {
+    display: flex;
+    align-items: center;
+    font-size: larger;
+}
+.online-dot {
+    width: 10px;
+    height: 10px;
+    background-color: green;
+    border-radius: 50%;
+    margin-right: 5px; 
+}
+.dropdowns-container img {
+    width: 10px; 
+    height: 30px; 
+    border-radius: 20px; 
+}
+.ads {
+    float: right; 
+
+    margin-right: 50px;
+    margin-top: 150px; 
+    cursor: pointer;
+    animation: blinkAndMove 2s infinite alternate;
+    
+}
+image {
+    height: 500px; /* Set the desired image height */
+    animation: blinkAndMove 2s infinite alternate; /* Blink and move animation */
+}
+@keyframes blinkAndMove {
+    0%, 100% {
+        opacity: 0;
+        transform: translateX(0);
+    }
+    50% {
+        opacity: 1;
+        transform: translateX(2 0px); /* Adjust the distance to move */
+    }
+}

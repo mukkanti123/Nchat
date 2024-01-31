@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advertise With Us</title>
+    <link rel="stylesheet" href="advertise.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <a href="#home"><img  src="imges/logo c.jpg" class="p" alt="Logo"></a>
+            </div>
+           
+    </header>
+   
+    <section >
+        <h1>Advertise With Us</h1>
+        <form id="contactForm" onsubmit="showAlert()">
+            <label for="name"> Company Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Company Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="subject">Subject:</label>
+            <input type="text" id="subject" name="subject" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+
+            <button type="submit">Submit</button>
+            <div class="Back">
+                <button type="button" onclick="Back()"><a href="./login.html">Back</a></button>
+
+            </div>
+            
+        </form>
+    </section>
+
+    <script>
+        function showAlert() {
+            var message = "Our Advertise Team will contact you within a short time! 😊";
+            alert(message);
+        }
+    </script>
+    
+</body>
+</html>

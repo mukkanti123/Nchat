@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Games</title>
+    <link rel="stylesheet" href="games.css">
+</head>
+<body>
+    <main>
+        <aside class="right-side">
+            <div class="header-container">
+                <div class="header">
+                    <div class="toggle-button">
+                    
+
+                       <!--Replace with your settings icon -->
+                    </div>
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="searchInput" placeholder="Search" oninput="searchNames()">
+
+                    </div>
+                </div>
+            </div>
+            <div class="body-container">
+                <button type="button" onclick="goBack()"></a> 
+                    <i class="fas fa-arrow-left"></i> 
+                </button>
+                <div class="chat-list" id="chatList">
+                    <div class="chat-box" id="Msg">
+                        <div class="chat-img">
+                           <img src="imges/c3.webp" alt="">
+                        </div>
+                        <div class="chat-details">
+                            <div class="chat-title">
+                                <h3>Varun</h3>
+                                <span>06:04 PM</span>
+                            </div>
+                            <div class="chat-msg">
+                                <p>23Yrs,karnataka,India</p>
+                               
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-box">
+                        <div class="chat-img">
+                            <img src="imges/c4.webp" alt="">
+                        </div>
+                        <div class="chat-details">
+                            <div class="chat-title">
+                                <h3>Ramu</h3>
+                                <span>04:04 PM</span>
+                            </div>
+                            <div class="chat-msg">
+                                <p>25Yrs,Andhra,India</p>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chat-box">
+                        <div class="chat-img">
+                            <img src="imges/c2.jpg" alt="">
+                        </div>
+                        <div class="chat-details">
+                            <div class="chat-title">
+                                <h3>Hari</h3>
+                                <span>03:04 PM</span>
+                            </div>
+                            <div class="chat-msg">
+                                <p>19Yrs,Chenai,India</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                   
+                    <div class="chat-box">
+                        <div class="chat-img">
+                            <img src="imges/p4.jpg" alt="">
+                        </div>
+                        <div class="chat-details">
+                            <div class="chat-title">
+                                <h3> mohan</h3>
+                                <span>02:04 PM</span>
+                            </div>
+                            <div class="chat-msg">
+                                <p>22Yrs,Karnataka,India</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-box">
+                        <div class="chat-img">
+                            <img src="imges/c1.jpg" alt="">
+                        </div>
+                        <div class="chat-details">
+                            <div class="chat-title">
+                                <h3>Bhanu</h3>
+                                <span>7:23Am</span>
+                            </div>
+                            <div class="chat-msg">
+                                <p>20Yrs,Chenai,Tamilnadu</p>
+                            </div>
+                        </div>
+                    </div>
+                   
+                    
+                </div>
+            </div>
+        </aside>
+        <section class="chat">
+            <div class="mychat">
+                <h1>Games Chat</h1>
+          
+                <div class="message-outgoing" id="messages"></div>
+                <form class="message-input-form" onsubmit="sendMessage(event)">
+                    <a href="#" id="emojiPickerButton" onclick="openEmojiPage()">
+                        <i class="fa fa-smile-o" aria-hidden="true"></i>
+                    </a>
+                    <label for="fileInput">
+                        
+                        <i class="fa fa-paperclip" aria-hidden="true"></i>
+                    </label>
+                    <input type="file" id="fileInput" style="display: none" onchange="handleFileUpload(this)">
+                    <input type="text" class="message-input" id="messageInput" placeholder="Type a message...">
+                    <i class="fa fa-microphone" aria-hidden="true" id="microphoneIcon"></i>
+                    <button type="submit">Send</button>
+                </form>
+                
+            </div>   
+            <script>
+                function goBack() {
+                    // Redirect to another page when the back button is pressed
+                    window.location.href = 'nchat.html';
+                }
+            </script> 
+                                                                                                                                                                  
+            </section>
+            <script>
+                function searchNames() {
+                    // Get the search input value
+                    const searchInput = document.getElementById('searchInput').value.toLowerCase();
+
+                    // Get all chat boxes
+                    const chatBoxes = document.querySelectorAll('.chat-box');
+
+                    // Iterate through each chat box
+                    chatBoxes.forEach(chatBox => {
+                        // Get the name inside the chat box
+                        const name = chatBox.querySelector('.chat-title h3').textContent.toLowerCase();
+
+                        // Check if the name contains the search input
+                        if (name.includes(searchInput)) {
+                            // Display the chat box
+                            chatBox.style.display = 'block';
+
+                            // Add click event to open chat with the selected name
+                            chatBox.addEventListener('click', () => {
+                                openChatWith(name);
+                            });
+                        } else {
+                            // Hide the chat box if the name doesn't match the search input
+                            chatBox.style.display = 'none';
+                        }
+                    });
+                }
+                function openChatWith(name) {
+                    // Implement the logic to open the chat with the selected name
+                    console.log('Opening chat with:', name);
+                    // You can redirect to a specific chat or handle it as needed
+                }
+            </script>
+        
+           
+    <script>
+       
+        function openEmojiPage() {
+           
+            window.location.href = 'emojie.html';
+        }
+    </script>
+    
+            <script>
+                function handleFileUpload(input) {
+                    const file = input.files[0];
+                    const messageInput = document.getElementById('messageInput');
+            
+                    if (file) {
+                        // You can display the file name or any other information in the message input
+                        messageInput.value = `File: ${file.name}`;
+                    }
+                }
+            
+                function sendMessage(event) {
+                    event.preventDefault();
+                    var messageInput = document.getElementById('messageInput');
+                    var message = messageInput.value.trim();
+            
+                    if (message !== '') {
+                        var messagesDiv = document.getElementById('messages');
+                        var userMessage = 'You: ' + message;
+                        var userMessageElement = document.createElement('p');
+                        userMessageElement.textContent = userMessage;
+                        messagesDiv.appendChild(userMessageElement);
+    
+                        // Simulate a reply (you might want to replace this with actual logic)
+                        var replies = ["Hello!", "How are you?", "Nice to meet you!", "What's up?", "Tell me more!"];
+                        var randomReply = "Friend: " + replies[Math.floor(Math.random() * replies.length)];
+    
+                        var replyElement = document.createElement('h2');
+                        replyElement.textContent = randomReply;
+                        messagesDiv.appendChild(replyElement);
+    
+                        messageInput.value = '';
+    
+                        messagesDiv.scrollTop = messagesDiv.scrollHeight;
+                    }
+                }
+            </script>
+
+        </main>
+    <script src="https://kit.fontawesome.com/9e5ba2e3f5.js" crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+    
+</body>
+</html>
+
+   
